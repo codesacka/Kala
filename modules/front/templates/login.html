@@ -1,0 +1,86 @@
+{% extends 'login.html' %}
+{% load static %}
+{% block content %}
+       <div class="page-auth__center">
+        <div class="page-auth__screen">
+            <div class="auth-logo">
+                <img class="auth-logo__icon" src="{% static '/img/content/logotype.svg'  %}" width="44" alt="#" />
+                <div class="auth-logo__text">Kala</div>
+            </div>
+            <img class="page-auth__screen-bg auth-bg-image-light" src="{% static '/img/content/auth-bg.jpg'  %}" alt="#">
+            <img class="page-auth__screen-bg auth-bg-image-dark" src="{% static '/img/content/auth-bg-dark.jpg'  %}" alt="#">
+        </div>
+        <div class="auth-card card">
+            <div class="card__wrapper">
+                <div class="auth-card__left">
+                    <div class="auth-card__logo">
+                        <div class="auth-logo">
+                            <img class="auth-logo__icon" src="{% static '/img/content/logotype.svg'  %}" width="44" alt="#" />
+                            <div class="auth-logo__text">Kala</div>
+                        </div>
+                    </div>
+                    <img class="auth-card__bg auth-bg-image-light" src="{% static '/img/content/auth-bg.jpg'  %}" alt="#">
+                    <img class="auth-card__bg auth-bg-image-dark" src="{% static '/img/content/auth-bg-dark.jpg'  %}" alt="#">
+                </div>
+                <form class="auth-card__right" method="POST">
+                    {% csrf_token %}
+                    <div class="auth-card__top">
+                        <h1 class="auth-card__title">Welcome to <span class="text-theme">Kala</span></h1>
+                        <p class="auth-card__text">Welcome Back, Please login
+                            <br>to your account.</p>
+                    </div>
+                    <div class="auth-card__body">
+
+                        {% print(error) %}
+
+                        <div class="form-group">
+                            <div class="input-group input-group--prepend"><span class="input-group__prepend">
+                <svg class="icon-icon-user">
+                  <use xlink:href="#icon-user"></use>
+                </svg></span>
+                                <input class="input" type="input" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group--prepend"><span class="input-group__prepend">
+                <svg class="icon-icon-password">
+                  <use xlink:href="#icon-password"></use>
+                </svg></span>
+                                <input class="input" type="password" value="">
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked><span class="checkbox__marker"><span class="checkbox__marker-icon">
+                        <svg class="icon-icon-checked">
+                          <use xlink:href="#icon-checked"></use>
+                        </svg></span></span><span class="ml-2">Remember Me</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="form-group"><a class="text-blue" href="auth-forgot.html">Forgot Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth-card__bottom">
+                        <div class="auth-card__buttons">
+                            <div class="auth-card__button"><a class="button button--secondary button--block" href="auth-create.html"><span class="button__text">Sign Up</span></a>
+                            </div>
+                            <div class="auth-card__button">
+                                <button class="button button--primary button--block" type="submit" ><span class="button__text">Login</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
